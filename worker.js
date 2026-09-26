@@ -4,7 +4,7 @@ const tracks = [
     title: "Midnight Signal",
     artist: "Example Artist",
     album: "Night Drive",
-    duration: 10,
+    duration: 242,
     artworkURL: "https://developer.mozilla.org/favicon-192x192.png",
     format: "flac",
     audioQuality: "LOSSLESS"

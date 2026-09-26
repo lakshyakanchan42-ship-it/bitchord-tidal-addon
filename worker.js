@@ -55,8 +55,8 @@ async function handleRequest(request) {
       container: "flac",
       manifest: "none",
       encrypted: false,
-      sampleRate: 96000,
-      bitDepth: 24
+      sampleRate: 44100,
+      bitDepth: 16
     })
   }
 

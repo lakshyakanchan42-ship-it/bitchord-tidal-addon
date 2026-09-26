@@ -5,7 +5,7 @@ const tracks = [
     artist: "Example Artist",
     album: "Night Drive",
     duration: 242,
-    artworkURL: "https://developer.mozilla.org/favicon-192x192.png",
+    artworkURL: "https://audio.example/art/8f31.jpg",
     format: "flac",
     audioQuality: "LOSSLESS"
   }

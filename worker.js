@@ -1,50 +1,65 @@
 const tracks = [
   {
-    id: "test_track_001",
-    title: "T-Rex Roar",
-    artist: "TAITETAI KID",
-    album: "T-Rex Roar",
-    duration: 183,
+    id: "track_8f31",
+    title: "Midnight Signal",
+    artist: "Example Artist",
+    album: "Night Drive",
+    duration: 10,
     artworkURL: "https://developer.mozilla.org/favicon-192x192.png",
-    format: "mp3",
-    audioQuality: "HIGH",
-    streamURL: "https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"
+    format: "flac",
+    audioQuality: "LOSSLESS"
   }
 ];
 
 const MANIFEST = {
   id: "lakshya.bitchord.test",
-  name: "Lakshya Test Addon",
+  name: "Lakshya FLAC Test Addon",
   version: "1.0.0",
-  resources: ["search", "stream"]
+  resources: ["search", "stream"],
+  settings: [
+    {
+      key: "quality",
+      type: "select",
+      default: "lossless",
+      options: [
+        {
+          label: "Lossless",
+          value: "lossless"
+        },
+        {
+          label: "High",
+          value: "high"
+        },
+        {
+          label: "Low",
+          value: "low"
+        }
+      ]
+    }
+  ]
 };
 
 export default {
   async fetch(request) {
     const url = new URL(request.url);
 
-    // Manifest
     if (url.pathname === "/manifest.json") {
       return json(MANIFEST);
     }
 
-    // Search
     if (url.pathname === "/search") {
       const query = (url.searchParams.get("q") || "").toLowerCase();
 
-      const results = tracks.filter((track) =>
-        [track.title, track.artist, track.album]
-          .join(" ")
-          .toLowerCase()
-          .includes(query)
-      );
-
       return json({
-        tracks: results
+        tracks: tracks.filter((track) =>
+          [track.title, track.artist, track.album]
+            .join(" ")
+            .toLowerCase()
+            .includes(query)
+        )
       });
     }
 
-    // Stream
     if (url.pathname.startsWith("/stream/")) {
       const id = decodeURIComponent(url.pathname.slice(8));
 
@@ -55,17 +70,20 @@ export default {
       }
 
       return json({
-        url: track.streamURL,
-        format: "mp3",
-        quality: "High",
-        codec: "mp3",
-        container: "mp3",
+        url: "https://pnb-website-bucket.s3.us-east-2.amazonaws.com/samples/audio/flac/sample-audio-10s.flac",
+        format: "flac",
+        quality: "Lossless · 16-bit / 44.1 kHz",
+        codec: "flac",
+        container: "flac",
         manifest: "none",
-        encrypted: false
+        encrypted: false,
+        sampleRate: 44100,
+        bitDepth: 16,
+        bitrate: 278000
       });
     }
 
-    return new Response("Not Found", { status: 404 });
+    return new Response(null, { status: 404 });
   }
 };
 

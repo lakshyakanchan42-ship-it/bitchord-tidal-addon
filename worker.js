@@ -3,7 +3,7 @@ const tracks = [
     id: "test_track_001",
     title: "T-Rex Roar",
     artist: "TAITETAI KID",
-    album: "Test Audio",
+    album: "T-Rex Roar",
     duration: 183,
     artworkURL: "https://developer.mozilla.org/favicon-192x192.png",
     format: "mp3",

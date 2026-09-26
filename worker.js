@@ -2,9 +2,9 @@ const tracks = [
   {
     id: "test_track_001",
     title: "T-Rex Roar",
-    artist: "MDN",
+    artist: "TAITETAI KID",
     album: "Test Audio",
-    duration: 3,
+    duration: 183,
     artworkURL: "https://developer.mozilla.org/favicon-192x192.png",
     format: "mp3",
     audioQuality: "HIGH",

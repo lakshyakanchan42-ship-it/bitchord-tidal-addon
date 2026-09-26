@@ -1,6 +1,6 @@
 {
-  "id": "lakshya.tidal.bitchord",
-  "name": "TIDAL",
+  "id": "dev.example.reference-addon",
+  "name": "Reference Addon",
   "version": "1.0.0",
   "resources": ["search", "stream"],
   "settings": [
@@ -9,18 +9,9 @@
       "type": "select",
       "default": "lossless",
       "options": [
-        {
-          "label": "Lossless",
-          "value": "lossless"
-        },
-        {
-          "label": "High",
-          "value": "high"
-        },
-        {
-          "label": "Low",
-          "value": "low"
-        }
+        { "label": "Lossless", "value": "lossless" },
+        { "label": "High", "value": "high" },
+        { "label": "Low", "value": "low" }
       ]
     }
   ]
